@@ -5,7 +5,8 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports ={
     entry: {
         index:'./src/index.js',
-        helloWorld:'./src/pages/helloWorld/helloWorld.js'
+        hello:'./src/pages/hello/index.js',
+        world:'./src/pages/hello/index.js'
     },
     output: {
         filename: process.env.NODE_ENV === 'production'?'js/[name].[chunkhash].js':'js/[name].js',
@@ -21,9 +22,15 @@ module.exports ={
         }),
         new HtmlWebpackPlugin({
             hash: true,
-            chunks: ['helloWorld'],
-            template: "src/pages/helloWorld/helloWorld.html",
-            filename: "pages/helloWorld.html"
+            chunks: ['hello'],
+            template: "src/pages/hello.html",
+            filename: "pages/hello.html"
+        }),
+        new HtmlWebpackPlugin({
+            hash: true,
+            chunks: ['world'],
+            template: "src/pages/world.html",
+            filename: "pages/world.html"
         }),
     ],
     module: {
