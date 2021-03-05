@@ -15,12 +15,11 @@
 .coder-container{
     margin: 40px auto;
     padding: 60px;
-    border-left: none;
-    border-right: none;
     height: auto;
     width:800px;
     border-radius: 6px;
-    background-color: #878787;
+    border:1px solid #30363d;
+    background-color: #161b22;
 }
 .nav{
     width: 80px;
