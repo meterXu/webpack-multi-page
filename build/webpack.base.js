@@ -1,37 +1,17 @@
 const path = require('path');
+const fs = require('fs')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
-module.exports ={
-    entry: {
-        index:'./src/index.js',
-        hello:'./src/pages/hello/index.js',
-        world:'./src/pages/hello/index.js'
-    },
+
+const baseConfig={
+    entry:{},
     output: {
         filename: process.env.NODE_ENV === 'production'?'js/[name].[chunkhash].js':'js/[name].js',
         path: path.resolve(__dirname, '../dist'),
     },
     plugins:[
         new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin({
-            hash: true,
-            chunks: ['index'],
-            template: "index.html",
-            filename: "index.html"
-        }),
-        new HtmlWebpackPlugin({
-            hash: true,
-            chunks: ['hello'],
-            template: "src/pages/hello.html",
-            filename: "pages/hello.html"
-        }),
-        new HtmlWebpackPlugin({
-            hash: true,
-            chunks: ['world'],
-            template: "src/pages/world.html",
-            filename: "pages/world.html"
-        }),
     ],
     module: {
         rules: [
@@ -68,3 +48,33 @@ module.exports ={
         ]
     }
 }
+
+function dealWithEntries(baseConfig){
+    const allObj = fs.readdirSync(path.join(__dirname,'../src/pages'),{
+        withFileTypes:true
+    })
+    const entry = {
+        index:'./src/index.js',
+    }
+    const htmlWebpackPlugins = [new HtmlWebpackPlugin({
+        hash: true,
+        chunks: ['index'],
+        template: "index.html",
+        filename: "index.html"
+    })]
+    allObj.filter(c=>c.isDirectory()).forEach(c=>{
+        entry[c.name] = `./src/pages/${c.name}/index.js`
+        htmlWebpackPlugins.push(new HtmlWebpackPlugin({
+            hash: true,
+            chunks: [c.name],
+            template: `src/pages/${c.name}.html`,
+            filename: `pages/${c.name}.html`
+        }),)
+    })
+    baseConfig.entry = entry
+    baseConfig.plugins = baseConfig.plugins.concat(htmlWebpackPlugins)
+    return baseConfig
+}
+
+
+module.exports = dealWithEntries(baseConfig)
