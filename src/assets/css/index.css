@@ -1,7 +1,24 @@
 #logo{
-    margin: 100px auto 0 auto;
+    margin: 100px auto 20px auto;
     width: 100px;
     height: 100px;
-    background: url("../../assets/img/xdo.png");
+    background: url("../../assets/img/logo.png");
     background-size: cover;
+}
+
+.nav{
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0;
+}
+.nav li{
+    list-style: none;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+}
+.nav li+li{
+    margin-left: 10px;
 }
