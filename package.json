@@ -4,7 +4,7 @@
   "description": "基于webpack构建的多页面开发示例项目",
   "main": "index.js",
   "scripts": {
-    "start:dev": "webpack-dev-server --inline --progress --config build/webpack.dev.js",
+    "start": "webpack-dev-server --inline --progress --config build/webpack.dev.js",
     "build": "node build/webpack.prod.js"
   },
   "repository": {
