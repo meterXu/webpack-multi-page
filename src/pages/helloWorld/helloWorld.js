@@ -1,4 +1,4 @@
-import '../assets/css/base.css'
+import '../../assets/css/base.css'
 import './helloWorld.css'
 document.getElementById('title').innerText='hello world!'
 xx()
