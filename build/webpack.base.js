@@ -10,11 +10,21 @@ const baseConfig={
         filename: process.env.NODE_ENV === 'production'?'js/[name].[chunkhash].js':'js/[name].js',
         path: path.resolve(__dirname, '../dist'),
     },
+    experiments: {
+        topLevelAwait: true
+    },
     plugins:[
         new CleanWebpackPlugin(),
     ],
     module: {
         rules: [
+            {
+                test: /\.js$/,
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader'
+                }
+            },
             {
                 test: /\.html$/i,
                 loader: 'html-loader',
