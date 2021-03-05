@@ -39,7 +39,7 @@ const baseConfig={
                         loader: "url-loader",
                         options: {
                             limit: 10000,
-                            name: 'img/[name].[hash:6].[ext]',
+                            name: '../img/[name].[hash:6].[ext]',
                         }
                     }
                 ]
@@ -50,7 +50,7 @@ const baseConfig={
                     {
                         loader: "file-loader",
                         options: {
-                            name: 'fonts/[name].[hash:6].[ext]',
+                            name: '../fonts/[name].[hash:6].[ext]',
                         }
                     }
                 ]

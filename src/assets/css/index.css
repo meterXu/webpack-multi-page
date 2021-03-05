@@ -2,7 +2,7 @@
     margin: 100px auto 20px auto;
     width: 100px;
     height: 100px;
-    background: url("../../assets/img/logo.png");
+    background: url("../img/logo.png");
     background-size: cover;
 }
 #webpack-multi-page{
