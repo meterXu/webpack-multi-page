@@ -5,6 +5,7 @@ const CopyPlugin  = require('copy-webpack-plugin')
 const portfinder = require('portfinder')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const webpack = require("webpack");
+const px2rem = require('postcss-px2rem');
 
 const webpackConfig = merge(baseConfig, {
     mode:'development',
@@ -47,7 +48,7 @@ const webpackConfig = merge(baseConfig, {
         rules: [
             {
                 test: /\.css$/i,
-                use: ['style-loader', 'css-loader' ]
+                use: ['style-loader', 'css-loader','postcss-loader' ]
             }
         ]
     }

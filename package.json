@@ -26,6 +26,8 @@
     "optimize-css-assets-webpack-plugin": "^5.0.4",
     "ora": "^5.3.0",
     "portfinder": "^1.0.28",
+    "postcss-loader": "^5.0.0",
+    "postcss-px2rem": "^0.3.0",
     "style-loader": "^2.0.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^4.1.1",

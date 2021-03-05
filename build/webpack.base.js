@@ -1,9 +1,7 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
-
+const px2rem  = require("postcss-px2rem")
 module.exports ={
     entry: {
         index:'./src/index.js',
@@ -26,9 +24,8 @@ module.exports ={
             chunks: ['helloWorld'],
             template: "src/pages/helloWorld.html",
             filename: "pages/helloWorld.html"
-        })
+        }),
     ],
-
     module: {
         rules: [
             {

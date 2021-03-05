@@ -9,6 +9,7 @@ const ora = require('ora')
 const chalk = require('chalk')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const path = require("path");
+const px2rem = require("postcss-px2rem");
 
 const spinner = ora('building for production...')
 spinner.start()
@@ -43,9 +44,9 @@ const webpackConfig = merge(baseConfig,{
     module: {
         rules: [{
             test: /\.css$/i,
-            use: [MiniCssExtractPlugin.loader,'css-loader']
+            use: [MiniCssExtractPlugin.loader,'css-loader','postcss-loader']
         }]
-    },
+    }
 })
 
 webpack(webpackConfig, function (err, stats) {
