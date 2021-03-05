@@ -5,7 +5,6 @@ const CopyPlugin  = require('copy-webpack-plugin')
 const portfinder = require('portfinder')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const webpack = require("webpack");
-const px2rem = require('postcss-px2rem');
 
 const webpackConfig = merge(baseConfig, {
     mode:'development',
