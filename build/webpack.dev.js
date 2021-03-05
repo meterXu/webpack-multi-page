@@ -5,6 +5,8 @@ const CopyPlugin  = require('copy-webpack-plugin')
 const portfinder = require('portfinder')
 const FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin')
 const webpack = require("webpack");
+const notifier = require('node-notifier')
+const packageConfig = require('../package.json')
 
 const webpackConfig = merge(baseConfig, {
     mode:'development',
@@ -53,6 +55,22 @@ const webpackConfig = merge(baseConfig, {
     }
 })
 
+function createNotifierCallback() {
+
+    return (severity, errors) => {
+        if (severity !== 'error') return
+        const error = errors[0]
+        const filename = error.file && error.file.split('!').pop()
+
+        notifier.notify({
+            title: packageConfig.name,
+            message: severity + ': ' + error.name,
+            subtitle: filename || '',
+            icon: path.join(__dirname, 'logo.png')
+        })
+    }
+}
+
 module.exports = new Promise((resolve,reject)=>{
     portfinder.basePort = webpackConfig.devServer.port
     portfinder.getPort((err,port)=>{
@@ -63,7 +81,8 @@ module.exports = new Promise((resolve,reject)=>{
             webpackConfig.plugins.push(new FriendlyErrorsPlugin({
                 compilationSuccessInfo: {
                   messages: [`Your application is running here: http://${webpackConfig.devServer.host}:${port}`],
-                }
+                },
+                onErrors: createNotifierCallback
               }))
             resolve(webpackConfig)
           }
