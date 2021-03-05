@@ -5,7 +5,23 @@
     background: url("../../assets/img/logo.png");
     background-size: cover;
 }
-
+#webpack-multi-page{
+    margin: auto;
+    width: 664px;
+    height: 242px;
+    background-image: url("http://7u.isaacxu.com/multi-page.png");
+    background-size: cover;
+}
+.coder-container{
+    margin: 40px auto;
+    padding: 60px;
+    border-left: none;
+    border-right: none;
+    height: auto;
+    width:800px;
+    border-radius: 6px;
+    background-color: #878787;
+}
 .nav{
     width: 80px;
     display: flex;
