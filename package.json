@@ -7,10 +7,6 @@
     "start": "webpack-dev-server --inline --progress --config build/webpack.dev.js",
     "build": "node build/webpack.prod.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "http://192.168.126.25/git/our-dev-group/dpark-icon.git"
-  },
   "author": "",
   "license": "MIT",
   "devDependencies": {
