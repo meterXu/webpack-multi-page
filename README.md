@@ -11,4 +11,4 @@
 * 支持多页面打包 
 * 开发支持热更新
 
-[示例](https://quizzical-wescoff-d84ab5.netlify.app/)
+[示例地址](http://192.168.126.25/webpack-multi-page/)
