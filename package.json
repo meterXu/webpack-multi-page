@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --inline --progress --config build/webpack.dev.js",
     "build": "node build/webpack.prod.js"
   },
-  "author": "",
+  "author": "isaac",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.13.8",
