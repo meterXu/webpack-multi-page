@@ -10,3 +10,5 @@
 * 支持es6，js模块化
 * 支持多页面打包 
 * 开发支持热更新
+
+[示例](https://quizzical-wescoff-d84ab5.netlify.app/)
