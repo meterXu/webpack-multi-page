@@ -3,7 +3,7 @@
 
 不想写SPA了，想写写html，原汁原味的那种，就像喝原味酸奶一样
 
-![webpack-multi-page](http://7u.isaacxu.com/multi-page.png)
+![webpack-multi-page](https://img.isaacxu.com/multi-page.png)
 
 ## 此脚手架功能
 * 纯html页面
